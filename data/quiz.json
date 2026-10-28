@@ -1,0 +1,355 @@
+{
+  "$comment": "Everything the quiz says, asks and scores lives in this file. Editing it changes the live experience. No code needs to be touched, no rebuild of the experience is required. See README.md.",
+  "version": "0.1.0",
+
+  "meta": {
+    "quizName": "Sports Parent IQ",
+    "tagline": "Five questions. One honest answer about what you are like on the sideline.",
+    "startLabel": "Find out my score",
+    "startFootnote": "Takes about a minute. Nothing is saved.",
+    "disclaimer": "Unofficial prototype built for KSNN's review. Not a published KSNN product.",
+    "footer": "Unofficial prototype built for KSNN's review. Sample content and placeholder copy.",
+    "progressTemplate": "Question {{current}} of {{total}}",
+    "backLabel": "Back",
+    "ksnnLinkLabel": "More from KSNN",
+    "ksnnLinkUrl": "#"
+  },
+
+  "personalities": [
+    {
+      "id": "rager",
+      "name": "The Rager",
+      "polarity": "negative",
+      "shortName": "Rager",
+      "blurb": "You feel every call in your chest, and the whole row knows it.",
+      "strength": "Nobody ever has to wonder whether you care. Least of all your kid.",
+      "watchOut": "On a bad day your kid hears your voice louder than the coach's.",
+      "feedback": [
+        "You are not a bad parent. You are a parent with the volume stuck on one setting.",
+        "Try picking one moment a game to let go completely. Just one. It is harder than it sounds."
+      ]
+    },
+    {
+      "id": "scroller",
+      "name": "The Scroller",
+      "polarity": "negative",
+      "shortName": "Scroller",
+      "blurb": "You are at every single game. So is your phone.",
+      "strength": "You never miss a fixture, a form, a carpool or a group chat. The logistics run on you.",
+      "watchOut": "The one touch they want you to have seen is the one you looked up for.",
+      "feedback": [
+        "You have not missed a game all season. You have just missed bits of all of them.",
+        "Phone in the pocket for the first half. You can catch up at the break, nothing will have exploded."
+      ]
+    },
+    {
+      "id": "carCoach",
+      "name": "The Car Coach",
+      "polarity": "negative",
+      "shortName": "Car Coach",
+      "blurb": "The game ends at the whistle. The analysis ends somewhere past the drive-thru.",
+      "strength": "You take their sport as seriously as they do, and they know it.",
+      "watchOut": "The car is the one place they cannot leave the conversation.",
+      "feedback": [
+        "Your notes are good. Your timing is brutal.",
+        "Give it ten minutes and a snack before the debrief. The same point lands twice as well."
+      ]
+    },
+    {
+      "id": "controlFreak",
+      "name": "The Control Freak",
+      "polarity": "negative",
+      "shortName": "Control Freak",
+      "blurb": "You have the rotation, the minutes, and a spreadsheet nobody asked for.",
+      "strength": "You spot what everyone else misses, including the genuinely unfair bits.",
+      "watchOut": "Running the team is one job. You already have the harder one.",
+      "feedback": [
+        "Somewhere there is a coach who has no idea how closely they are being audited.",
+        "Keep the notes. Send fewer of them. Your kid mostly needs you in the stands, not in the inbox."
+      ]
+    },
+    {
+      "id": "sidelineBully",
+      "name": "The Sideline Bully",
+      "polarity": "negative",
+      "shortName": "Sideline Bully",
+      "blurb": "You say it loud, and you mean for it to land.",
+      "strength": "You will not stand there in silence while your kid gets a raw deal.",
+      "watchOut": "The other parents remember it. So does your kid, for longer than you think.",
+      "feedback": [
+        "You are fighting their corner. The trouble is they can hear you from the corner.",
+        "Same instinct, quieter delivery. Say it to the coach after, not to the field during."
+      ]
+    },
+    {
+      "id": "cheerleader",
+      "name": "The Cheerleader",
+      "polarity": "positive",
+      "shortName": "Cheerleader",
+      "blurb": "You are the loudest good noise on that field.",
+      "strength": "Your kid can find you in a crowd with their eyes shut.",
+      "watchOut": "Some days they want a nod, not a roar. Read the walk off the field.",
+      "feedback": [
+        "Every team has one parent who makes the whole sideline better. It is you.",
+        "Keep going. Just check occasionally that they still want to be found quite that easily."
+      ]
+    },
+    {
+      "id": "supporter",
+      "name": "The Supporter",
+      "polarity": "positive",
+      "shortName": "Supporter",
+      "blurb": "You ask how it felt before you say how it looked.",
+      "strength": "They tell you the real version, not the safe version. That is rare and you earned it.",
+      "watchOut": "Being this steady is a job. Make sure somebody asks how your weekend was too.",
+      "feedback": [
+        "You are the parent other parents quietly copy in the car park.",
+        "Nothing to fix here. Just do not run yourself into the ground being everyone's calm one."
+      ]
+    },
+    {
+      "id": "balanceBuilder",
+      "name": "The Balance Builder",
+      "polarity": "positive",
+      "shortName": "Balance Builder",
+      "blurb": "Sport is a big part of their week, not the whole of their life.",
+      "strength": "You keep one Sunday from eating the entire family.",
+      "watchOut": "Some seasons they want it to be the whole thing. Let them have one.",
+      "feedback": [
+        "You are the reason there is still a family dinner in October.",
+        "Hold the line. And when they ask for the extra session, say yes once in a while."
+      ]
+    },
+    {
+      "id": "teamPlayer",
+      "name": "The Team Player",
+      "polarity": "positive",
+      "shortName": "Team Player",
+      "blurb": "You turn up for the whole squad, not just your own kid.",
+      "strength": "Half the team's parents have your number, and there is a reason for that.",
+      "watchOut": "Somebody else can bring the snacks occasionally. Let them.",
+      "feedback": [
+        "Every club is held together by about four people. You are one of them.",
+        "Say no to one thing this season. The team will survive it, and so will you."
+      ]
+    },
+    {
+      "id": "gratefulParent",
+      "name": "The Grateful Parent",
+      "polarity": "positive",
+      "shortName": "Grateful Parent",
+      "blurb": "You know how fast this ends, so you watch it while it is still happening.",
+      "strength": "You are actually there. Present is most of the job and you have it covered.",
+      "watchOut": "Grateful is not the same as quiet. They do still want to hear you now and then.",
+      "feedback": [
+        "In ten years you will be the one who remembers the games. That is not an accident.",
+        "Make some noise occasionally. They want to know you saw it, not just that you were there."
+      ]
+    }
+  ],
+
+  "questions": [
+    {
+      "id": "carRide",
+      "text": "Your 11 year old comes off the field after a loss and says the ref was terrible. What do you say first?",
+      "options": [
+        {
+          "id": "carRide-a",
+          "text": "The ref missed a few. But you had your chances in the second half.",
+          "weights": { "carCoach": 3, "supporter": 1 }
+        },
+        {
+          "id": "carRide-b",
+          "text": "Forget the ref. What did you learn out there?",
+          "weights": { "balanceBuilder": 2, "supporter": 1, "carCoach": 1 }
+        },
+        {
+          "id": "carRide-c",
+          "text": "He was terrible. I nearly said something myself.",
+          "weights": { "rager": 3, "sidelineBully": 1, "carCoach": 1 }
+        },
+        {
+          "id": "carRide-d",
+          "text": "Nothing. I let them finish talking.",
+          "weights": { "supporter": 2, "gratefulParent": 2, "balanceBuilder": 1 }
+        }
+      ]
+    },
+    {
+      "id": "sideline",
+      "text": "Fifteen minutes in, a call goes against your kid's team. What do the people around you see?",
+      "options": [
+        {
+          "id": "sideline-a",
+          "text": "Me, telling the ref exactly what I thought of that one.",
+          "weights": { "rager": 3, "sidelineBully": 2 }
+        },
+        {
+          "id": "sideline-b",
+          "text": "Me, clapping and shouting next play.",
+          "weights": { "cheerleader": 3, "teamPlayer": 1, "supporter": 1 }
+        },
+        {
+          "id": "sideline-c",
+          "text": "Me, looking up from my phone to ask what I missed.",
+          "weights": { "scroller": 3, "gratefulParent": 1 }
+        },
+        {
+          "id": "sideline-d",
+          "text": "Not much. These even out over a season.",
+          "weights": { "gratefulParent": 2, "balanceBuilder": 2, "supporter": 1 }
+        }
+      ]
+    },
+    {
+      "id": "groupChat",
+      "text": "The team group chat starts up about playing time. You...",
+      "options": [
+        {
+          "id": "groupChat-a",
+          "text": "Type a long message about the rotation, then delete it.",
+          "weights": { "controlFreak": 2, "scroller": 1, "supporter": 1 }
+        },
+        {
+          "id": "groupChat-b",
+          "text": "Send it, with the minutes I wrote down.",
+          "weights": { "controlFreak": 3, "carCoach": 2 }
+        },
+        {
+          "id": "groupChat-c",
+          "text": "Change the subject to who is bringing snacks.",
+          "weights": { "teamPlayer": 3, "cheerleader": 1, "gratefulParent": 1 }
+        },
+        {
+          "id": "groupChat-d",
+          "text": "Mute it and get on with my evening.",
+          "weights": { "balanceBuilder": 3, "gratefulParent": 1 }
+        }
+      ]
+    },
+    {
+      "id": "coach",
+      "text": "Coach leaves your kid on the bench for most of the second half. What happens next?",
+      "options": [
+        {
+          "id": "coach-a",
+          "text": "I catch the coach after and ask what my kid should work on.",
+          "weights": { "teamPlayer": 2, "supporter": 1, "carCoach": 1 }
+        },
+        {
+          "id": "coach-b",
+          "text": "I ask my kid how they felt about it.",
+          "weights": { "supporter": 3, "balanceBuilder": 1 }
+        },
+        {
+          "id": "coach-c",
+          "text": "I am already writing the email in my head.",
+          "weights": { "controlFreak": 3, "sidelineBully": 1, "rager": 1 }
+        },
+        {
+          "id": "coach-d",
+          "text": "I say it is a strange call, loud enough that coach hears.",
+          "weights": { "sidelineBully": 3, "rager": 1 }
+        }
+      ]
+    },
+    {
+      "id": "phone",
+      "text": "Where is your phone for most of the game?",
+      "options": [
+        {
+          "id": "phone-a",
+          "text": "In my hand. Someone has to film every touch.",
+          "weights": { "scroller": 2, "cheerleader": 2, "carCoach": 1 }
+        },
+        {
+          "id": "phone-b",
+          "text": "In my hand. Work does not stop for a Saturday.",
+          "weights": { "scroller": 3, "controlFreak": 1 }
+        },
+        {
+          "id": "phone-c",
+          "text": "In my pocket. I will take one photo at the end.",
+          "weights": { "gratefulParent": 2, "balanceBuilder": 2, "cheerleader": 1 }
+        },
+        {
+          "id": "phone-d",
+          "text": "In the car. I came here to watch.",
+          "weights": { "gratefulParent": 3, "supporter": 2, "teamPlayer": 1 }
+        }
+      ]
+    }
+  ],
+
+  "scoring": {
+    "$comment": "score = baseScore + (total positive weight x positivePointValue) + (total negative weight x negativePointValue), rounded, then clamped to minScore..maxScore. Change any of these five numbers and every result changes.",
+    "baseScore": 100,
+    "positivePointValue": 3.5,
+    "negativePointValue": -3,
+    "minScore": 0,
+    "maxScore": 200,
+    "tieBreakOrder": [
+      "rager",
+      "sidelineBully",
+      "controlFreak",
+      "carCoach",
+      "scroller",
+      "supporter",
+      "balanceBuilder",
+      "teamPlayer",
+      "cheerleader",
+      "gratefulParent"
+    ],
+    "bands": [
+      {
+        "minScore": 0,
+        "label": "Take a lap",
+        "line": "There is a lot of love in there. It is coming out sideways."
+      },
+      {
+        "minScore": 70,
+        "label": "Warming up",
+        "line": "Good instincts, loud edges. The edges are the easy part to fix."
+      },
+      {
+        "minScore": 105,
+        "label": "Solid in the stands",
+        "line": "You get it right most weekends. The bad ones are just louder."
+      },
+      {
+        "minScore": 140,
+        "label": "Sideline MVP",
+        "line": "Your kid is lucky, and on a good day they know it."
+      },
+      {
+        "minScore": 170,
+        "label": "Hall of fame parent",
+        "line": "Whatever you are doing on that sideline, bottle it."
+      }
+    ]
+  },
+
+  "result": {
+    "scoreLabel": "Your Sports Parent IQ",
+    "scoreCaption": "Sports Parent IQ",
+    "scoreOutOfTemplate": "out of {{max}}",
+    "typeIntro": "You are",
+    "secondaryTemplate": "With a streak of {{secondary}}",
+    "strengthLabel": "Your strength",
+    "watchOutLabel": "Your watch-out",
+    "shareHeading": "Your card",
+    "shareButtonLabel": "Save your card",
+    "shareSavingLabel": "Making your card",
+    "shareErrorLabel": "That did not save. Try once more.",
+    "restartLabel": "Take it again",
+    "howItWorksLabel": "How this is built",
+    "howItWorksBody": "Nothing in this quiz is written in code. Every question, every answer, every weight, the scoring rule and all of this feedback copy live in one file, data/quiz.json. The block below is the real entry for the question you just answered. Change a number in it and your result changes, with no rebuild of the experience.",
+    "howItWorksCloseLabel": "Close"
+  },
+
+  "card": {
+    "eyebrow": "Sports Parent IQ",
+    "scoreCaption": "Sports Parent IQ",
+    "footer": "Unofficial prototype for KSNN review"
+  }
+}
