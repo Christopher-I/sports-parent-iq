@@ -20,10 +20,13 @@ export default function QuestionScreen({
   const total = quiz.questions.length;
   const [picked, setPicked] = useState<string | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
-  // A new question means the previous selection flash is void.
+  // A new question means the previous selection flash is void. Focus moves to the
+  // new heading so a screen reader reads the question and Tab restarts from the top.
   useEffect(() => {
     setPicked(null);
+    headingRef.current?.focus({ preventScroll: true });
     return () => {
       if (timer.current) clearTimeout(timer.current);
     };
@@ -63,12 +66,14 @@ export default function QuestionScreen({
         ))}
       </div>
 
-      <h2
+      <h1
         key={question.id}
-        className="rise mt-9 text-[1.5rem] leading-[1.25] font-semibold tracking-[-0.02em] text-balance"
+        ref={headingRef}
+        tabIndex={-1}
+        className="rise mt-9 text-[1.5rem] leading-[1.25] font-semibold tracking-[-0.02em] text-balance focus:outline-none"
       >
         {question.text}
-      </h2>
+      </h1>
 
       <ul key={`${question.id}-options`} className="rise mt-7 flex flex-col gap-2.5">
         {question.options.map((option, i) => {

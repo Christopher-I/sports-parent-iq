@@ -1,6 +1,6 @@
 "use client";
 
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import Landing from "./Landing";
 import QuestionScreen from "./QuestionScreen";
 import ResultScreen from "./ResultScreen";
@@ -53,6 +53,12 @@ function reducer(state: State, action: Action): State {
 
 export default function QuizApp() {
   const [state, dispatch] = useReducer(reducer, undefined, blank);
+
+  // Answering from halfway down a question would otherwise drop you halfway down
+  // the next one, and finishing would drop you halfway down your own result.
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [state.stage, state.index]);
 
   return (
     <Shell>
