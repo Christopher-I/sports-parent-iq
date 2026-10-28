@@ -184,7 +184,7 @@ export default function ResultScreen({
         type="button"
         onClick={saveCard}
         disabled={saveState === "saving"}
-        className="mt-5 w-full rounded-2xl bg-amber px-6 py-4 text-[1.0625rem] font-semibold text-ink transition active:scale-[0.985] disabled:opacity-60"
+        className="mt-5 w-full rounded-2xl bg-amber px-6 py-4 text-[1.0625rem] font-semibold text-ink transition hover:brightness-110 active:scale-[0.985] disabled:opacity-60 disabled:hover:brightness-100"
       >
         {saveState === "saving" ? result.shareSavingLabel : result.shareButtonLabel}
       </button>

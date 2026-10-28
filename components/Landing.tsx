@@ -38,7 +38,7 @@ export default function Landing({ onStart }: { onStart: () => void }) {
       <button
         type="button"
         onClick={onStart}
-        className="mt-5 w-full rounded-2xl bg-amber px-6 py-4 text-[1.0625rem] font-semibold text-ink transition active:scale-[0.985]"
+        className="mt-5 w-full rounded-2xl bg-amber px-6 py-4 text-[1.0625rem] font-semibold text-ink transition hover:brightness-110 active:scale-[0.985]"
       >
         {meta.startLabel}
       </button>
