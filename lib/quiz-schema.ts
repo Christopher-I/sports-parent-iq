@@ -49,11 +49,11 @@ export function validateQuiz(raw: unknown): Quiz {
         "startLabel",
         "startFootnote",
         "disclaimer",
+        "badge",
         "footer",
         "progressTemplate",
         "backLabel",
         "ksnnLinkLabel",
-        "ksnnLinkUrl",
       ],
     ],
     [
@@ -61,7 +61,7 @@ export function validateQuiz(raw: unknown): Quiz {
       [
         "scoreLabel",
         "scoreCaption",
-        "scoreOutOfTemplate",
+        "averageLabel",
         "typeIntro",
         "secondaryTemplate",
         "strengthLabel",
@@ -174,6 +174,7 @@ export function validateQuiz(raw: unknown): Quiz {
   } else {
     for (const key of [
       "baseScore",
+      "averageScore",
       "positivePointValue",
       "negativePointValue",
       "minScore",
@@ -236,6 +237,11 @@ export function validateQuiz(raw: unknown): Quiz {
         );
       }
     }
+  }
+
+  const meta = raw.meta;
+  if (isBag(meta) && typeof meta.ksnnLinkUrl !== "string") {
+    problems.push(`meta.ksnnLinkUrl must be a string (empty means "no link yet")`);
   }
 
   if (typeof raw.version !== "string") problems.push(`"version" must be a string`);

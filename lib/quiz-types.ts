@@ -31,6 +31,7 @@ export interface Band {
 
 export interface Scoring {
   baseScore: number;
+  averageScore: number;
   positivePointValue: number;
   negativePointValue: number;
   minScore: number;
@@ -45,6 +46,7 @@ export interface QuizMeta {
   startLabel: string;
   startFootnote: string;
   disclaimer: string;
+  badge: string;
   footer: string;
   progressTemplate: string;
   backLabel: string;
@@ -55,7 +57,7 @@ export interface QuizMeta {
 export interface ResultCopy {
   scoreLabel: string;
   scoreCaption: string;
-  scoreOutOfTemplate: string;
+  averageLabel: string;
   typeIntro: string;
   secondaryTemplate: string;
   strengthLabel: string;

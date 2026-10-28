@@ -10,7 +10,7 @@ export default function Landing({ onStart }: { onStart: () => void }) {
     <div className="rise flex flex-1 flex-col justify-center py-10">
       <span className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-line bg-panel px-3 py-1.5 text-[9px] font-medium tracking-[0.09em] text-muted uppercase">
         <span aria-hidden className="size-1.5 shrink-0 rounded-full bg-amber" />
-        {meta.disclaimer.split(".")[0]}
+        {meta.badge}
       </span>
 
       <h1 className="text-[2.75rem] leading-[0.95] font-semibold tracking-[-0.03em] text-balance">

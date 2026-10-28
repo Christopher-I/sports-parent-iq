@@ -117,9 +117,6 @@ export default function ResultScreen({
         </p>
         <p className="pb-2 text-[11px] font-semibold tracking-[0.14em] text-muted uppercase">
           {result.scoreCaption}
-          <span className="mt-1 block font-sans text-[11px] tracking-normal normal-case">
-            {fillTemplate(result.scoreOutOfTemplate, { max: quiz.scoring.maxScore })}
-          </span>
         </p>
       </div>
 
@@ -200,12 +197,21 @@ export default function ResultScreen({
         >
           {result.restartLabel}
         </button>
-        <a
-          href={meta.ksnnLinkUrl}
-          className="w-full rounded-2xl border border-line bg-panel px-6 py-3.5 text-center text-[0.9375rem] font-medium text-muted transition hover:bg-raise"
-        >
-          {meta.ksnnLinkLabel}
-        </a>
+        {meta.ksnnLinkUrl.trim() && meta.ksnnLinkUrl.trim() !== "#" ? (
+          <a
+            href={meta.ksnnLinkUrl}
+            className="w-full rounded-2xl border border-line bg-panel px-6 py-3.5 text-center text-[0.9375rem] font-medium text-muted transition hover:bg-raise"
+          >
+            {meta.ksnnLinkLabel}
+          </a>
+        ) : (
+          <p
+            aria-disabled="true"
+            className="w-full rounded-2xl border border-dashed border-line px-6 py-3.5 text-center text-[0.9375rem] font-medium text-muted/55"
+          >
+            {meta.ksnnLinkLabel}
+          </p>
+        )}
       </div>
 
       <button

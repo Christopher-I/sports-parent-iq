@@ -8,11 +8,13 @@
     "startLabel": "Find out my score",
     "startFootnote": "Takes about a minute. Nothing is saved.",
     "disclaimer": "Unofficial prototype built for KSNN's review. Not a published KSNN product.",
+    "badge": "Unofficial prototype built for KSNN's review",
     "footer": "Unofficial prototype built for KSNN's review. Sample content and placeholder copy.",
     "progressTemplate": "Question {{current}} of {{total}}",
     "backLabel": "Back",
     "ksnnLinkLabel": "More from KSNN",
-    "ksnnLinkUrl": "#"
+    "$ksnnLinkUrl": "Put a real KSNN URL here and this becomes a live link. Left empty, it renders as an inactive placeholder rather than a link that does nothing.",
+    "ksnnLinkUrl": ""
   },
 
   "personalities": [
@@ -26,7 +28,7 @@
       "watchOut": "On a bad day your kid hears your voice louder than the coach's.",
       "feedback": [
         "You are not a bad parent. You are a parent with the volume stuck on one setting.",
-        "Try picking one moment a game to let go completely. Just one. It is harder than it sounds."
+        "Try picking one moment a game to let it go completely. Just one. It is harder than it sounds."
       ]
     },
     {
@@ -35,7 +37,7 @@
       "polarity": "negative",
       "shortName": "Scroller",
       "blurb": "You are at every single game. So is your phone.",
-      "strength": "You never miss a fixture, a form, a carpool or a group chat. The logistics run on you.",
+      "strength": "You never miss a game, a form, a carpool or a group chat. The logistics run on you.",
       "watchOut": "The one touch they want you to have seen is the one you looked up for.",
       "feedback": [
         "You have not missed a game all season. You have just missed bits of all of them.",
@@ -103,7 +105,7 @@
       "strength": "They tell you the real version, not the safe version. That is rare and you earned it.",
       "watchOut": "Being this steady is a job. Make sure somebody asks how your weekend was too.",
       "feedback": [
-        "You are the parent other parents quietly copy in the car park.",
+        "You are the parent other parents quietly copy in the parking lot.",
         "Nothing to fix here. Just do not run yourself into the ground being everyone's calm one."
       ]
     },
@@ -129,7 +131,7 @@
       "strength": "Half the team's parents have your number, and there is a reason for that.",
       "watchOut": "Somebody else can bring the snacks occasionally. Let them.",
       "feedback": [
-        "Every club is held together by about four people. You are one of them.",
+        "Every team is held together by about four people. You are one of them.",
         "Say no to one thing this season. The team will survive it, and so will you."
       ]
     },
@@ -151,7 +153,7 @@
   "questions": [
     {
       "id": "carRide",
-      "text": "Your 11 year old comes off the field after a loss and says the ref was terrible. What do you say first?",
+      "text": "Your 11-year-old comes off the field after a loss and says the ref was terrible. What do you say first?",
       "options": [
         {
           "id": "carRide-a",
@@ -165,7 +167,7 @@
         },
         {
           "id": "carRide-c",
-          "text": "He was terrible. I nearly said something myself.",
+          "text": "He was terrible. I almost said something myself.",
           "weights": { "rager": 3, "sidelineBully": 1, "carCoach": 1 }
         },
         {
@@ -222,7 +224,7 @@
         },
         {
           "id": "groupChat-d",
-          "text": "Mute it and get on with my evening.",
+          "text": "Mute it and move on with my night.",
           "weights": { "balanceBuilder": 3, "gratefulParent": 1 }
         }
       ]
@@ -282,12 +284,13 @@
   ],
 
   "scoring": {
-    "$comment": "score = baseScore + (total positive weight x positivePointValue) + (total negative weight x negativePointValue), rounded, then clamped to minScore..maxScore. Change any of these five numbers and every result changes.",
+    "$comment": "score = baseScore + (total positive weight x positivePointValue) + (total negative weight x negativePointValue), rounded, then clamped to minScore..maxScore. It is read as an IQ, so it is centred on averageScore rather than marked out of a total. Change any of these numbers and every result changes.",
     "baseScore": 100,
-    "positivePointValue": 3.5,
-    "negativePointValue": -3,
-    "minScore": 0,
-    "maxScore": 200,
+    "averageScore": 100,
+    "positivePointValue": 1.8,
+    "negativePointValue": -1.2,
+    "minScore": 60,
+    "maxScore": 160,
     "tieBreakOrder": [
       "rager",
       "sidelineBully",
@@ -307,24 +310,24 @@
         "line": "There is a lot of love in there. It is coming out sideways."
       },
       {
-        "minScore": 70,
+        "minScore": 96,
         "label": "Warming up",
         "line": "Good instincts, loud edges. The edges are the easy part to fix."
       },
       {
-        "minScore": 105,
+        "minScore": 106,
         "label": "Solid in the stands",
         "line": "You get it right most weekends. The bad ones are just louder."
       },
       {
-        "minScore": 140,
+        "minScore": 118,
         "label": "Sideline MVP",
         "line": "Your kid is lucky, and on a good day they know it."
       },
       {
-        "minScore": 170,
-        "label": "Hall of fame parent",
-        "line": "Whatever you are doing on that sideline, bottle it."
+        "minScore": 130,
+        "label": "Hall of Fame parent",
+        "line": "Whatever you are doing on that sideline, the rest of us would like the recipe."
       }
     ]
   },
@@ -332,7 +335,7 @@
   "result": {
     "scoreLabel": "Your Sports Parent IQ",
     "scoreCaption": "Sports Parent IQ",
-    "scoreOutOfTemplate": "out of {{max}}",
+    "averageLabel": "average",
     "typeIntro": "You are",
     "secondaryTemplate": "With a streak of {{secondary}}",
     "strengthLabel": "Your strength",

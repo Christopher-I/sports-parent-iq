@@ -55,9 +55,14 @@ score = baseScore
       + (total weight on negative personalities × negativePointValue)
 ```
 
-then rounded and clamped to `minScore`..`maxScore`. All five of those numbers are in
-`data/quiz.json` under `scoring`, not in the code. With the values as shipped, the most positive
-path scores 188 and the most negative scores 28.
+then rounded and clamped to `minScore`..`maxScore`. Those numbers are all in `data/quiz.json` under
+`scoring`, not in the code.
+
+It is deliberately an IQ and not a mark out of a total. It is centred on `averageScore`, and the
+result screen marks the average on the scale rather than saying "out of". With the values as
+shipped the range runs from 71 to 145, the median path scores 110, and the five bands each get a
+real share of the outcomes. A parent who does badly gets a low IQ, which is funny, rather than a
+failing grade, which nobody shares.
 
 The primary type is the personality with the highest total weight. Ties are broken by
 `scoring.tieBreakOrder`, also in the file. The runner-up becomes the "with a streak of ..." line.
